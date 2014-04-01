@@ -68,7 +68,7 @@ HIDE_SIDEBAR = False
 DISPLAY_ARTICLE_INFO_ON_INDEX = True
 
 #Disqus stuff
-#DISQUS_SITENAME = 'rebeccaweissinfo'
+DISQUS_SITENAME = 'rebeccaweissinfo'
 #DISQUS_DISPLAY_COUNTS = 
 
 #Google Analytics stuff
