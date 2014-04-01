@@ -44,6 +44,10 @@ PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 
 THEME = 'pelican-themes/pelican-bootstrap3'
+BOOTSTRAP_THEME = 'spacelab'
+
+CC_LICENSE="CC-BY"
+DISPLAY_RECENT_POSTS_ON_SIDEBAR=True
 
 # Blogroll - disabled for now
 #LINKS =  (('Political Communication Laboratory', 'http://pcl.stanford.edu/'),
@@ -61,13 +65,14 @@ DEFAULT_PAGINATION = 10
 DISPLAY_TAGS_ON_SIDEBAR = False
 DISPLAY_TAGS_INLINE = True
 HIDE_SIDEBAR = False
+DISPLAY_ARTICLE_INFO_ON_INDEX = True
 
 #Disqus stuff
 #DISQUS_SITENAME = 'rebeccaweissinfo'
 #DISQUS_DISPLAY_COUNTS = 
 
 #Google Analytics stuff
-#GOOGLE_ANALYTICS
+GOOGLE_ANALYTICS = 'UA-39179035-2'
 
 #Github stuff
 GITHUB_URL = 'http://www.github.com/rjweiss'
