@@ -1,6 +1,10 @@
-<<<<<<< HEAD
 # Created by http://www.gitignore.io
 ENV/
+
+### Pelican ###
+pelican.pid
+srv.pid
+_nb_header.html
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm

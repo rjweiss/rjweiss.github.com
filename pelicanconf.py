@@ -59,7 +59,7 @@ DISPLAY_RECENT_POSTS_ON_SIDEBAR=True
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
 
 # pelican-bootstrap3
 DISPLAY_TAGS_ON_SIDEBAR = False
