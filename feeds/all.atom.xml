@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Rebecca Weiss</title><link href="http://rebeccaweiss.info/" rel="alternate"></link><link href="http://rebeccaweiss.info/feeds/all.atom.xml" rel="self"></link><id>http://rebeccaweiss.info/</id><updated>2014-03-31T20:33:00+02:00</updated><entry><title>Testing IPython notebook integration with pelican</title><link href="http://rebeccaweiss.info/articles/2014/03/31/testing-ipython-integration/" rel="alternate"></link><updated>2014-03-31T20:33:00+02:00</updated><author><name>Rebecca Weiss</name></author><id>tag:rebeccaweiss.info,2014-03-31:articles/2014/03/31/testing-ipython-integration/</id><summary type="html">&lt;p&gt;In this post, I'm (selfishly) testing the integration between pelican and &lt;code&gt;IPython&lt;/code&gt; notebooks.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Rebecca Weiss</title><link href="http://rebeccaweiss.info/" rel="alternate"></link><link href="http://rebeccaweiss.info/feeds/all.atom.xml" rel="self"></link><id>http://rebeccaweiss.info/</id><updated>2014-04-15T00:00:00+02:00</updated><entry><title>IRiSS Computational Social Science workshop materials</title><link href="http://rebeccaweiss.info/articles/2014/04/15/iriss2013-tutorial/" rel="alternate"></link><updated>2014-04-15T00:00:00+02:00</updated><author><name>Rebecca Weiss</name></author><id>tag:rebeccaweiss.info,2014-04-15:articles/2014/04/15/iriss2013-tutorial/</id><summary type="html">&lt;p&gt;The &lt;a href="https://iriss.stanford.edu/"&gt;Institute of Research in Social Science&lt;/a&gt; at Stanford has been offering a &lt;a href="https://css-center.stanford.edu/workshops"&gt;Computational Social Science short course&lt;/a&gt; for the past few summers.&lt;/p&gt;
+&lt;p&gt;Last year, I gave a workshop introducing the shell and basic text analysis in Python.&lt;/p&gt;
+&lt;p&gt;Slides and instructional materials are all located here: &lt;a href="http://www.rebeccaweiss.info/text-iriss2013/"&gt;http://www.rebeccaweiss.info/text-iriss2013/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I will probably be revising those materials into a more general set of text tutorials at some point.&lt;/p&gt;</summary><category term="pelican"></category><category term="publishing"></category><category term="workshops"></category></entry><entry><title>Mozilla Festival workshop materials</title><link href="http://rebeccaweiss.info/articles/2014/04/15/mozfest2013-workshop/" rel="alternate"></link><updated>2014-04-15T00:00:00+02:00</updated><author><name>Rebecca Weiss</name></author><id>tag:rebeccaweiss.info,2014-04-15:articles/2014/04/15/mozfest2013-workshop/</id><summary type="html">&lt;p&gt;I gave a workshop on how to work with text as data at the 2013 &lt;a href="http://mozillafestival.org"&gt;Mozilla Festival&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Slides and instructional materials (&lt;code&gt;R&lt;/code&gt; and &lt;code&gt;Python&lt;/code&gt;) are all located here: &lt;a href="http://www.rebeccaweiss.info/mozfest2013/"&gt;http://www.rebeccaweiss.info/mozfest2013/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I will probably be revising those materials into a more general set of text tutorials at some point.&lt;/p&gt;</summary><category term="pelican"></category><category term="publishing"></category><category term="workshops"></category></entry><entry><title>Testing IPython notebook integration with pelican</title><link href="http://rebeccaweiss.info/articles/2014/03/31/testing-ipython-integration/" rel="alternate"></link><updated>2014-03-31T20:33:00+02:00</updated><author><name>Rebecca Weiss</name></author><id>tag:rebeccaweiss.info,2014-03-31:articles/2014/03/31/testing-ipython-integration/</id><summary type="html">&lt;p&gt;In this post, I'm (selfishly) testing the integration between pelican and &lt;code&gt;IPython&lt;/code&gt; notebooks.&lt;/p&gt;
 &lt;p&gt;I've been meaning to do this for awhile, since I have quite a few &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;Python&lt;/code&gt; tutorials on a variety of subjects written up as &lt;code&gt;IPython&lt;/code&gt; notebooks, my distribution platform of choice.&lt;/p&gt;
 &lt;p&gt;I was having trouble getting the &lt;code&gt;pelican-bootstrap3&lt;/code&gt; theme to play nicely with the &lt;code&gt;liquid-tags&lt;/code&gt; pelican plugin.  I have to give a hat-tip to &lt;a href="http://theoryandpractice.org/"&gt;Kyle Cranmer&lt;/a&gt; who posted his &lt;a href="http://theoryandpractice.org/2014/03/Testing-Pelican-Migration/"&gt;solution&lt;/a&gt; (involves chopping up the &lt;code&gt;_nb_header.html&lt;/code&gt; and creating a &lt;code&gt;_nb_header_minimal.html&lt;/code&gt;, which is referred to in your &lt;code&gt;pelicanconf.py&lt;/code&gt; as &lt;code&gt;EXTRA_HEADER&lt;/code&gt; instead).  &lt;/p&gt;
 &lt;p&gt;It's crazy to see someone else with a similar workflow!  I only discovered his work since I was having &lt;em&gt;the worst time ever&lt;/em&gt; trying to get pelican to play nicely with notebooks.&lt;/p&gt;
 &lt;p&gt;His hack does the job, and now the notebooks are more nicely styled than without the additional css, but it makes me feel a little leery since it has the feel of something that will break with an update.  Oh well; that's what you get when you use open-source projects.&lt;/p&gt;
-&lt;p&gt;Below the line is an example of an ipython notebook embedded in a pelican article.  It's as simple as creating a notebook and referring to {% notebook demonstration.ipynb % } in the article post.&lt;/p&gt;
+&lt;p&gt;Below the line is an example of an ipython notebook embedded in a pelican article.  It's as simple as creating a notebook and referring to {% notebook demonstration.ipynb %} in the article post.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -518,7 +523,7 @@ In&amp;nbsp;[4]:
     &lt;div class="input_area"&gt;
 &lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;ggplot&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
 
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;ggplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mtcars&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;aes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;mpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;qsec&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; \
+&lt;span class="n"&gt;ggplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mtcars&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;aes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;mpg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;qsec&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; \
   &lt;span class="n"&gt;geom_point&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;colour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;steelblue&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; \
   &lt;span class="n"&gt;scale_x_continuous&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;breaks&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;  \
                      &lt;span class="n"&gt;labels&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;horrible&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;ok&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;awesome&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
@@ -776,13 +781,16 @@ XRrSAYA57LkEgEGgsbFRmzZtUiqV0p49e/SDH/xAixcvdjoWAJw2rnMJAGlyqnMo4/G47rvvPtXW
 
 &lt;/div&gt;
 
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;
-&amp;lt;ggplot: (279879441)&amp;gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;
+    Out[4]:&lt;/div&gt;
 
+
+&lt;div class="output_text output_subarea output_pyout"&gt;
+&lt;pre&gt;
+&amp;lt;ggplot: (288873745)&amp;gt;
 &lt;/pre&gt;
 &lt;/div&gt;
+
 &lt;/div&gt;
 
 &lt;/div&gt;
@@ -965,7 +973,7 @@ Dep. Variable:                      y   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                  1.000
 Method:                 Least Squares   F-statistic:                 4.020e+06
 Date:                Sat, 19 Apr 2014   Prob (F-statistic):          2.83e-239
-Time:                        11:02:54   Log-Likelihood:                -146.51
+Time:                        15:40:38   Log-Likelihood:                -146.51
 No. Observations:                 100   AIC:                             299.0
 Df Residuals:                      97   BIC:                             306.8
 Df Model:                           2                                         
@@ -1218,7 +1226,7 @@ In&amp;nbsp;[11]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# What are the versions of packages?&lt;/span&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;&lt;span class="c"&gt;# What modules are loaded into the local namespace?&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;locals&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;locals&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;startswith&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
@@ -1251,8 +1259,8 @@ In&amp;nbsp;[11]:
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="final-note"&gt;Final note&lt;/h3&gt;
-&lt;p&gt;For reproducibility reasons, I&amp;#39;m using pkg_resources to reveal the version numbers of imported modules (since all of these were installed from PyPI).  This is a pretty heavy handed way to do this; if you&amp;#39;re using &lt;code&gt;virtualenv&lt;/code&gt; and &lt;code&gt;pip&lt;/code&gt; (and you are, right?), it&amp;#39;s conventionally considered better practice to &lt;code&gt;pip freeze&lt;/code&gt; a &lt;code&gt;requirements.txt&lt;/code&gt; file rather than manually printing out each version using &lt;code&gt;pkg_resources&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;For the sanity of other readers, folks, please reveal version numbers of the software you use somewhere in your documentation! &lt;strong&gt;Not enough people do this&lt;/strong&gt;, and not only is it an incredible waste of time, it discourages people from following your work!&lt;/p&gt;
+&lt;p&gt;For reproducibility reasons, I&amp;#39;m using &lt;code&gt;pkg_resources&lt;/code&gt; to reveal the version numbers of imported modules (since all of these were installed from PyPI).  This is a pretty heavy handed way to do this; if you&amp;#39;re using &lt;code&gt;virtualenv&lt;/code&gt; and &lt;code&gt;pip&lt;/code&gt; (and you are, right?), it&amp;#39;s conventionally considered better practice to &lt;code&gt;pip freeze&lt;/code&gt; a &lt;code&gt;requirements.txt&lt;/code&gt; file rather than manually printing out each version using &lt;code&gt;pkg_resources&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For the sanity of other readers, folks, please reveal version numbers of the software you use somewhere in your documentation! &lt;strong&gt;Not enough people do this&lt;/strong&gt;, and not only is it an incredible waste of time to try and walk through someone&amp;#39;s example code and fail constantly because you have different versions insalled, it discourages people from following your work!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

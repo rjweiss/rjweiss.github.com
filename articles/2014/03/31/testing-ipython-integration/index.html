@@ -253,7 +253,7 @@ init_mathjax();
 <p>I was having trouble getting the <code>pelican-bootstrap3</code> theme to play nicely with the <code>liquid-tags</code> pelican plugin.  I have to give a hat-tip to <a href="http://theoryandpractice.org/">Kyle Cranmer</a> who posted his <a href="http://theoryandpractice.org/2014/03/Testing-Pelican-Migration/">solution</a> (involves chopping up the <code>_nb_header.html</code> and creating a <code>_nb_header_minimal.html</code>, which is referred to in your <code>pelicanconf.py</code> as <code>EXTRA_HEADER</code> instead).  </p>
 <p>It's crazy to see someone else with a similar workflow!  I only discovered his work since I was having <em>the worst time ever</em> trying to get pelican to play nicely with notebooks.</p>
 <p>His hack does the job, and now the notebooks are more nicely styled than without the additional css, but it makes me feel a little leery since it has the feel of something that will break with an update.  Oh well; that's what you get when you use open-source projects.</p>
-<p>Below the line is an example of an ipython notebook embedded in a pelican article.  It's as simple as creating a notebook and referring to {% notebook demonstration.ipynb % } in the article post.</p>
+<p>Below the line is an example of an ipython notebook embedded in a pelican article.  It's as simple as creating a notebook and referring to {% notebook demonstration.ipynb %} in the article post.</p>
 <hr />
 <p>
 <div class="cell border-box-sizing text_cell rendered">
@@ -767,7 +767,7 @@ In&nbsp;[4]:
     <div class="input_area">
 <div class="highlight-ipynb"><pre class="ipynb"><span class="kn">from</span> <span class="nn">ggplot</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">print</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s">&#39;mpg&#39;</span><span class="p">,</span> <span class="s">&#39;qsec&#39;</span><span class="p">))</span> <span class="o">+</span> \
+<span class="n">ggplot</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s">&#39;mpg&#39;</span><span class="p">,</span> <span class="s">&#39;qsec&#39;</span><span class="p">))</span> <span class="o">+</span> \
   <span class="n">geom_point</span><span class="p">(</span><span class="n">colour</span><span class="o">=</span><span class="s">&#39;steelblue&#39;</span><span class="p">)</span> <span class="o">+</span> \
   <span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span>  \
                      <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;horrible&quot;</span><span class="p">,</span> <span class="s">&quot;ok&quot;</span><span class="p">,</span> <span class="s">&quot;awesome&quot;</span><span class="p">])</span>
@@ -1025,13 +1025,16 @@ XRrSAYA57LkEgEGgsbFRmzZtUiqV0p49e/SDH/xAixcvdjoWAJw2rnMJAGlyqnMo4/G47rvvPtXW
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-&lt;ggplot: (279879441)&gt;
+<div class="output_area"><div class="prompt output_prompt">
+    Out[4]:</div>
 
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+&lt;ggplot: (288873745)&gt;
 </pre>
 </div>
+
 </div>
 
 </div>
@@ -1214,7 +1217,7 @@ Dep. Variable:                      y   R-squared:                       1.000
 Model:                            OLS   Adj. R-squared:                  1.000
 Method:                 Least Squares   F-statistic:                 4.020e+06
 Date:                Sat, 19 Apr 2014   Prob (F-statistic):          2.83e-239
-Time:                        11:02:54   Log-Likelihood:                -146.51
+Time:                        15:40:38   Log-Likelihood:                -146.51
 No. Observations:                 100   AIC:                             299.0
 Df Residuals:                      97   BIC:                             306.8
 Df Model:                           2                                         
@@ -1467,7 +1470,7 @@ In&nbsp;[11]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># What are the versions of packages?</span>
+<div class="highlight-ipynb"><pre class="ipynb"><span class="c"># What modules are loaded into the local namespace?</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="k">print</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">locals</span><span class="p">()[</span><span class="n">key</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="n">sys</span><span class="p">))</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">)]</span>
@@ -1500,8 +1503,8 @@ In&nbsp;[11]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="final-note">Final note</h3>
-<p>For reproducibility reasons, I&#39;m using pkg_resources to reveal the version numbers of imported modules (since all of these were installed from PyPI).  This is a pretty heavy handed way to do this; if you&#39;re using <code>virtualenv</code> and <code>pip</code> (and you are, right?), it&#39;s conventionally considered better practice to <code>pip freeze</code> a <code>requirements.txt</code> file rather than manually printing out each version using <code>pkg_resources</code>.</p>
-<p>For the sanity of other readers, folks, please reveal version numbers of the software you use somewhere in your documentation! <strong>Not enough people do this</strong>, and not only is it an incredible waste of time, it discourages people from following your work!</p>
+<p>For reproducibility reasons, I&#39;m using <code>pkg_resources</code> to reveal the version numbers of imported modules (since all of these were installed from PyPI).  This is a pretty heavy handed way to do this; if you&#39;re using <code>virtualenv</code> and <code>pip</code> (and you are, right?), it&#39;s conventionally considered better practice to <code>pip freeze</code> a <code>requirements.txt</code> file rather than manually printing out each version using <code>pkg_resources</code>.</p>
+<p>For the sanity of other readers, folks, please reveal version numbers of the software you use somewhere in your documentation! <strong>Not enough people do this</strong>, and not only is it an incredible waste of time to try and walk through someone&#39;s example code and fail constantly because you have different versions insalled, it discourages people from following your work!</p>
 </div>
 </div>
 </div>
@@ -1590,6 +1593,16 @@ IPython = 2.0.0
 
                 <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                     <ul class="list-group" id="recentposts">
+                        <li class="list-group-item">
+                            <a href="http://rebeccaweiss.info/articles/2014/04/15/iriss2013-tutorial/">
+                                IRiSS Computational Social Science workshop materials
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://rebeccaweiss.info/articles/2014/04/15/mozfest2013-workshop/">
+                                Mozilla Festival workshop materials
+                            </a>
+                        </li>
                         <li class="list-group-item">
                             <a href="http://rebeccaweiss.info/articles/2014/03/31/testing-ipython-integration/">
                                 Testing IPython notebook integration with pelican
