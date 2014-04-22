@@ -1,6 +1,6 @@
 Title: Testing IPython notebook integration with pelican
 Date: 2014-03-31 20:33
-Category: updates
+Category: Updates
 Tags: pelican, ipython, notebook
 Slug: testing-ipython-integration
 Author: Rebecca Weiss
@@ -16,7 +16,7 @@ It's crazy to see someone else with a similar workflow!  I only discovered his w
 
 His hack does the job, and now the notebooks are more nicely styled than without the additional css, but it makes me feel a little leery since it has the feel of something that will break with an update.  Oh well; that's what you get when you use open-source projects.
 
-Below the line is an example of an ipython notebook embedded in a pelican article.  It's as simple as creating a notebook and referring to \{% notebook demonstration.ipynb % \} in the article post.
+Below the line is an example of an ipython notebook embedded in a pelican article.  It's as simple as creating a notebook and referring to \{% notebook demonstration.ipynb %\} in the article post.
 
 * * *
 
