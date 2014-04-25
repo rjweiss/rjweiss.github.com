@@ -10,8 +10,9 @@ The [Department of Political Science][polisci] at Stanford started the [Very App
 
 I gave a workshop introducing Python with a brief application of simple page scraping.  
 
-The slides and related materials are all located here (note the capitalization): [http://www.rebeccaweiss.info/VAM-Python][vamworkshop]
+The slides and related materials are all located here (note the capitalization): 
 
+[`http://www.rebeccaweiss.info/VAM-Python`][vamworkshop]
 
 I will probably be revising those materials into a more general set of Python tutorials at some point.
 
