@@ -1,34 +1,12 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<title>VAM</title>
 
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-<title>VAM slides</title>
-
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
-
-<!-- For syntax highlighting -->
-<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
-
-<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-<script>
-document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-</script>
-
-<!--[if lt IE 9]>
-<script src="reveal.js/lib/js/html5shiv.js"></script>
-<![endif]-->
-
-<!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
     .clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
@@ -1637,76 +1615,63 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-html {
-  overflow-y: auto;
+body {
+  overflow: visible;
+  padding: 8px;
 }
-.reveal {
-  font-size: 160%;
+
+div#notebook {
+  overflow: visible;
+  border-top: none;
 }
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal i {
-  font-style: normal;
-  font-family: FontAwesome;
-  font-size: 2em;
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
-div.input_area {
-  padding: 0.06em;
-}
-div.code_cell {
-  background-color: transparent;
-}
-div.prompt {
-  width: 11ex;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  text-align: right;
-}
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-div.output_prompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-.rendered_html p {
-  text-align: inherit;
+
+@media print {
+  div.cell {
+    display: block;
+    page-break-inside: avoid;
+  } 
+  div.output_wrapper { 
+    display: block;
+    page-break-inside: avoid; 
+  }
+  div.output { 
+    display: block;
+    page-break-inside: avoid; 
+  }
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-</head>
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
 
+</head>
 <body>
-<div class="reveal">
-<div class="slides">
-<section>
-    <section>
-    
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1718,10 +1683,7 @@ div.output_prompt {
 <p>Author: <strong>Rebecca Weiss</strong></p>
 </div>
 </div>
-</div></section>
-    </section><section>
-    <section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1730,8 +1692,7 @@ div.output_prompt {
 <h1 id="what-are-we-covering-in-this-presentation-">What are we covering in this presentation?</h1>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1743,8 +1704,6 @@ div.output_prompt {
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1756,8 +1715,6 @@ div.output_prompt {
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1769,10 +1726,6 @@ div.output_prompt {
 </div>
 </div>
 </div>
-    </div></section>
-    </section><section>
-    <section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1781,8 +1734,7 @@ div.output_prompt {
 <h1 id="what-are-we-__not__-covering-in-this-presentation-">What are we <em><strong>not</strong></em> covering in this presentation?</h1>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1794,8 +1746,6 @@ div.output_prompt {
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1807,8 +1757,6 @@ div.output_prompt {
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1820,8 +1768,6 @@ div.output_prompt {
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1832,10 +1778,6 @@ div.output_prompt {
 </div>
 </div>
 </div>
-    </div></section>
-    </section><section>
-    <section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1844,8 +1786,7 @@ div.output_prompt {
 <h1 id="what-is-python-">What is Python?</h1>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1866,8 +1807,6 @@ div.output_prompt {
 </div>
 </div>
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1876,8 +1815,7 @@ div.output_prompt {
 <p>The Python standard library is also very comprehensive for most general computing needs.</p>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1910,8 +1848,6 @@ In&nbsp;[19]:
 </div>
 
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1926,8 +1862,7 @@ In&nbsp;[19]:
 </ul>
 </div>
 </div>
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1935,21 +1870,15 @@ In&nbsp;[19]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> However, for most of you, this is more than you need to know.  </strong></p>
 <ul>
-<li>Because Python is a general purpose language, you can get easily lost in tutorials!<ul>
-<li>Assume knowledge of computing</li>
-<li>Focus only on basics <ul>
-<li>data types (<code>strings</code>!  <code>ints</code>!) and collections (<code>sets</code>! <code>dicts</code>! <code>lists</code>!), logic (<code>for</code> loops!  <code>list</code> comprehensions!)</li>
-</ul>
-</li>
-<li>Useful tools and best practices?</li>
-<li>How to solve analysis problems?</li>
-</ul>
-</li>
+<li>Because Python is a general purpose language, you can get easily lost in tutorials!</li>
+<li>Most tutorials assume that you already have a <em>reason</em> to learn how to program in Python</li>
+<li>Others assume you have either training or intuition about how computers work</li>
+<li>Most teach you the basics of data types (strings!  ints!) and logic (<code>for</code> loops!  <code>list</code> comprehensions!)</li>
+<li>Very few leave with an introduction to useful tools and best practices</li>
 </ul>
 </div>
 </div>
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1957,7 +1886,8 @@ In&nbsp;[19]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> We&#39;re going to try and cover a lot of ground by teaching through application </strong></p>
 <ul>
-<li><strong> Demonstrate how to use Python to extract structured data from web pages </strong><ul>
+<li><strong> Use Python to extract structured data from web pages </strong></li>
+<li>In doing so, we will do the following:<ul>
 <li>Review basic Python and programming concepts</li>
 <li>Introduce web technology concepts (server-client architecture, response-request model, the DOM)</li>
 <li>Demonstrate useful tools and modules to use Python <em>for analysis purposes</em>.</li>
@@ -1966,26 +1896,13 @@ In&nbsp;[19]:
 </ul>
 </div>
 </div>
-</div></section>
-    </section><section>
-    <section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="background-information-and-vocabulary">Background information and vocabulary</h1>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="source-code-the-interpreter-python-distributions-and-ides">Source code, the interpreter, Python distributions, and IDEs</h2>
+<h1 id="source-code-and-the-interpreter">Source code and the interpreter</h1>
 <p>First, you need to install Python.  There are lots of tutorials on this:</p>
 <ul>
 <li>OSX users: <a href="http://docs.python-guide.org/en/latest/starting/install/osx/"><a href="http://docs.python-guide.org/en/latest/starting/install/osx/">http://docs.python-guide.org/en/latest/starting/install/osx/</a></a></li>
@@ -1993,118 +1910,8 @@ In&nbsp;[19]:
 <li>Linux users: <a href="http://docs.python-guide.org/en/latest/starting/install/linux/"><a href="http://docs.python-guide.org/en/latest/starting/install/linux/">http://docs.python-guide.org/en/latest/starting/install/linux/</a></a></li>
 </ul>
 <p>Follow one of these guides.  My opinionated perspective: OSX and Windows are not great (OSX is a little easier if you have <code>brew</code> or <code>MacPorts</code> installed, but it&#39;s still not ideal).</p>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="what-exactly-did-installing-python-do-">What exactly did &quot;installing Python&quot; do?</h3>
 <p>When you are &quot;installing Python,&quot; you are giving your computer access to the Python <em>interpreter</em>.  </p>
 <p>This is what allows you to write source code (human-readable language expressed in certain syntax) and convert it into executable software through a process called (shockingly) <em>interpreting</em>.  </p>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="enthought-python-distribution-a-batteries-included-python">Enthought Python Distribution: a &quot;batteries-included&quot; Python</h2>
-<p>The previous guides will install the standard Python environment (the standard library, docs, and a Python interpreter).</p>
-<p>There are other interpreters (Cython, Jython, IronPython)...we can&#39;t really go into those now (see <a href="http://docs.python-guide.org/en/latest/starting/which-python/">here</a> for more discussion).</p>
-<p>If you intend to use Python for analysis, just get <a href="https://www.enthought.com/products/epd/">Enthought Python</a>. </p>
-<p>Enthought is a <a href="https://wiki.python.org/moin/PythonDistributions">Python distribution</a>.  For our purposes, that just means that it installs Python with the most common 3rd party analysis modules used in scientific computing.</p>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>If you install the Enthought Python Distribution and choose it as your default Python environment, all your calls to <code>python</code> will go to the installation of Python that comes with EPD</strong>.</p>
-<pre><code>rweiss$ less ~/.profile
-# Added by Canopy installer on 2013-05-09
-source /Users/rweiss/Library/Enthought/Canopy_64bit/User/bin/activate
-</code></pre><blockquote>
-<p>NOTE: A <code>.profile</code> file is automatically executed every time you open a shell.  In other systems, this can also be a <code>~/.bashrc</code>, a <code>~/.bash_profile</code>, <code>~/.zshrc</code>, and others; it depends on what kind of shell you&#39;re running.</p>
-</blockquote>
-<p>If you want to check what <code>python</code> you&#39;re running, type <code>which python</code>.  This will tell you where your computer is sending calls to <code>python</code>.  (You can do this for any executable added to your path, such as <code>java</code> if it is installed).</p>
-<pre><code>rweiss$ which python
-/Users/rweiss/Library/Enthought/Canopy_64bit/User/bin/python
-</code></pre><p>This is an example in OSX.  You can see that my computer is calling <code>python</code> from the Canopy directory.</p>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> What if I don&#39;t want to use EPD and I want to go back to regular Python? </strong></p>
-<pre><code>rweiss$ deactivate
-rweiss$ which python
-/usr/bin/python
-rweiss$ source /Users/rweiss/Library/Enthought/Canopy_64bit/User/bin/activate # or just source ~/.profile
-rweiss$ which python
-/Users/rweiss/Library/Enthought/Canopy_64bit/User/bin/python
-</code></pre><p><code>deactivate</code> is actually a <code>virtualenv</code> command.  We&#39;ll get back to that in a few slides.</p>
-<p>Installing the EPD means you won&#39;t have to manually handle all the dependencies for many popular 3rd party modules, like <code>scipy</code> and <code>lxml</code>.  You don&#39;t have to use it, but if you aren&#39;t comfortable installing software from the command line, handling paths, or compiling dependencies from source code, just use EPD.</p>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="integrated-development-environments">Integrated Development Environments</h2>
-<p><strong> Installing Enthought means you get <a href="https://www.enthought.com/products/canopy/">Canopy</a> for free.</strong> </p>
-<p>But installing Enthought doesn&#39;t mean you <em>must</em> use Canopy.</p>
-<p>Canopy is just an IDE.  <a href="https://wiki.python.org/moin/IntegratedDevelopmentEnvironments">There are lots of IDEs</a>.  You can still use the Enthought distribution and use whatever text editor you want (I use <a href="http://www.sublimetext.com/">Sublime</a> and <a href="http://en.wikipedia.org/wiki/Vim_%28text_editor%29">VIM</a>).</p>
-<p>If you are not comfortable with the command line and you want a single piece of software where you write all your code and the interpreter in the same environment (think RStudio), you should consider using Canopy for now.</p>
-</div>
-</div>
-</div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> Opening an interactive interpreter </strong>
-After you have followed a tutorial that teaches you how to install Python, typically the next step is to start Python from the command line (OSX Terminal):</p>
-<pre><code>rweiss$ which python
-/usr/bin/python
-rweiss$ python
-Python 2.7.2 (default, Oct 11 2012, 20:14:37) 
-[GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)] on darwin
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-&gt;&gt;&gt;
-</code></pre><p>The prompt with the <code>&gt;&gt;&gt;</code> is interactive.  It&#39;s like the console in <code>R</code>.  You can type in your commands and the code is immediately interpreted and printed.</p>
-<p><strong> Don&#39;t use <code>python</code>.  Use <code>IPython</code>. </strong> </p>
-<pre><code>rweiss$ ipython
-Python 2.7.3 | 64-bit | (default, Jun 14 2013, 18:17:36) 
-Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-
-IPython 2.0.0 -- An enhanced Interactive Python.
-?         -&gt; Introduction and overview of IPython&#39;s features.
-%quickref -&gt; Quick reference.
-help      -&gt; Python&#39;s own help system.
-object?   -&gt; Details about &#39;object&#39;, use &#39;object??&#39; for extra details.
-
-In [1]:
-</code></pre>
 </div>
 </div>
 </div>
@@ -2115,29 +1922,64 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre> 
+<div class="highlight"><pre><span class="c">## Python distributions and interactive interpreter prompts.</span>
+
+<span class="n">The</span> <span class="n">previous</span> <span class="n">guides</span> <span class="n">will</span> <span class="n">install</span> <span class="n">the</span> <span class="n">standard</span> <span class="n">Python</span> <span class="n">interpreter</span><span class="o">.</span>
+
+<span class="n">Other</span> <span class="n">interpreters</span> <span class="p">(</span><span class="n">Cython</span><span class="p">,</span> <span class="n">Jython</span><span class="p">,</span> <span class="n">IronPython</span><span class="p">)</span><span class="o">...</span><span class="n">we</span> <span class="n">can</span><span class="s">&#39;t really go into those now (see [here](http://docs.python-guide.org/en/latest/starting/which-python/) for more discussion).</span>
+
+<span class="n">I</span> <span class="n">have</span> <span class="n">two</span> <span class="n">recommendations</span><span class="p">:</span>
+<span class="mf">1.</span> <span class="n">If</span> <span class="n">you</span> <span class="n">intend</span> <span class="n">to</span> <span class="n">use</span> <span class="n">Python</span> <span class="k">for</span> <span class="n">scientific</span> <span class="n">computing</span><span class="p">,</span> <span class="n">just</span> <span class="n">install</span> <span class="n">the</span> <span class="n">Enthought</span> <span class="n">distribution</span><span class="o">.</span>
+    <span class="o">-</span> <span class="n">It</span> <span class="n">will</span> <span class="n">handle</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">dependencies</span> <span class="k">for</span> <span class="n">many</span> <span class="n">popular</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">party</span> <span class="n">modules</span><span class="p">,</span> <span class="n">like</span> 
+<span class="mf">2.</span> 
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div></section>
-    </section><section>
-    <section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>After you have followed a tutorial that teaches you how to install Python, typically the next step is to start Python from the command line:</p>
+<pre><code>rweiss$ which python
+/usr/bin/python
+rweiss$ python
+Python 2.7.2 (default, Oct 11 2012, 20:14:37) 
+[GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</code></pre><p>The prompt with the <code>&gt;&gt;&gt;</code> is interactive.  It&#39;s like the console in <code>R</code>.  You can type in your commands and the code is immediately interpreted and printed.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Don&#39;t use <code>python</code>.  Use <code>IPython</code>. </strong> </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># The Interpreter</span>
+</pre></div>
 
 </div>
 </div>
-</div></section>
-    </section><section>
-    <section>
-    
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2189,8 +2031,7 @@ acegikmoqsuwy
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2237,8 +2078,7 @@ Type-checking: Iterable.
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2272,8 +2112,7 @@ abcdefghijklmnopqrstuvwxyz
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2323,8 +2162,7 @@ Squared = 16
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2386,8 +2224,7 @@ In&nbsp;[68]:
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2424,8 +2261,7 @@ In&nbsp;[40]:
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2467,8 +2303,7 @@ In&nbsp;[45]:
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2509,8 +2344,7 @@ In&nbsp;[47]:
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2544,10 +2378,7 @@ In&nbsp;[48]:
 </div>
 </div>
 
-</div></section>
-    </section><section>
-    <section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2583,8 +2414,7 @@ In&nbsp;[141]:
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2621,8 +2451,7 @@ In&nbsp;[133]:
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2656,8 +2485,7 @@ In&nbsp;[134]:
 </div>
 </div>
 
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2695,8 +2523,6 @@ Server response status code = 200
 </div>
 
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2751,8 +2577,7 @@ url
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2795,10 +2620,7 @@ utf-8
 </div>
 </div>
 
-</div></section>
-    </section><section>
-    <section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -4181,10 +4003,7 @@ In&nbsp;[117]:
 </div>
 </div>
 
-</div></section>
-    </section><section>
-    <section>
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -5827,65 +5646,8 @@ In&nbsp;[]:
 </div>
 </div>
 
-</div></section>
-    </section>
 </div>
-</div>
-
-<script src="reveal.js/lib/js/head.min.js"></script>
-
-<script src="reveal.js/js/reveal.js"></script>
-
-<script>
-
-// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize({
-controls: true,
-progress: true,
-history: true,
-
-theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
-
-// Optional libraries used to extend on reveal.js
-dependencies: [
-{ src: "reveal.js/lib/js/classList.js", condition: function() { return !document.body.classList; } },
-{ src: "reveal.js/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-{ src: "reveal.js/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
-]
-});
-</script>
-
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
-<script>
-Reveal.addEventListener( 'slidechanged', function( event ) {
-  window.scrollTo(0,0);
-  MathJax.Hub.Rerender(event.currentSlide);
-});
-</script>
-
+    </div>
+  </div>
 </body>
-
 </html>
