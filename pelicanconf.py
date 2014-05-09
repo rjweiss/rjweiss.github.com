@@ -13,7 +13,7 @@ PLUGIN_PATH = 'pelican-plugins'
 PLUGINS = ['liquid_tags.notebook']
 
 # Tell Pelican to add 'extra/custom.css' to the output dir
-STATIC_PATHS = ['images', 'extra/custom.css']
+STATIC_PATHS = ['images', 'extra/custom.css', 'drafts/figure']
 
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
