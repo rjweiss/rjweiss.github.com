@@ -1,0 +1,138 @@
+@font-face {
+    font-family: 'OpenSans';
+    font-style: normal;
+    -webkit-font-smoothing:antialiased;
+    font-weight: 500;
+    src: local('Open Sans'), local('OpenSans'), url("//themes.googleusercontent.com/static/fonts/opensans/v6/u-WUoqrET9fUeobQW7jkRT8E0i7KZn-EPnyo3HZu7kw.woff") format('woff');
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: 'OpenSans';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Open Sans'), local('OpenSans'), url("http://themes.googleusercontent.com/static/fonts/opensans/v6/u-WUoqrET9fUeobQW7jkRT8E0i7KZn-EPnyo3HZu7kw.woff") format('woff');
+}
+
+body {
+	margin: 2% 0 0 0 !important;
+	padding: 0 !important;
+}
+
+.navbar {
+	margin: 2% 0 0 0 !important;
+	position: fixed;
+	float: left;
+	width: 13%;	
+	/*float: left;*/s
+}
+
+div.navbar * {
+	color: #000 !important;
+}
+
+ul.navbar-nav {
+	padding: 0;
+	width: 90%;
+	/*border: 1px solid black !important;*/
+	text-align: right !important;
+}
+
+/*body > div.navbar.navbar-default.navbar-fixed-top > div > div.collapse.navbar-collapse.navbar-ex1-collapse > ul.nav.navbar-nav.navbar-right*/
+
+ul.nav.navbar-nav.navbar-right {
+	float: left !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	/*border: 3px solid green !important;*/
+}
+
+ul.nav.navbar-nav.navbar-right li {
+	font-size: 14pt !important;
+}
+
+.navbar ul {
+	margin-top: 150%;
+	/*border: 2px solid blue;	*/
+}
+
+.navbar li {
+	/*color: #000 !important;*/
+	font-size: 15pt;
+	padding: 0 5% !important;
+	/*border: 2px solid red;*/
+	margin: 2% 0 !important;
+}
+
+.navbar a {
+	padding: 0 0  !important;
+	margin: 0 0 !important;
+	/*border: 2px solid green;*/
+}
+
+div.navbar-header div.container {
+	padding: 0 !important;
+}
+
+.navbar-header {
+	width: auto%;
+}
+
+.entry-title {
+	margin: 1% 0 2% 0 !important;
+	padding: 0 !important;
+}
+
+.navbar-brand {
+	text-align: center;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+#navbar-brand-img {
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+}
+
+div.navbar .container {
+	float: right;
+	width: 83%;
+	/*border: 1px solid black;*/
+	padding: 0 !important;
+}
+
+div.container {
+	float: right;
+	width: 83%;
+	padding: 0 10% 0 2% !important;
+	/*margin: 0 10% 0 0 !important;*/
+}
+
+div.content {
+	margin-left: 15%;
+	margin-right: 5%;
+	width: 85%;
+}
+
+div.content a {
+	color: solid red;
+}
+
+section#content.body {
+	font-size: 16pt;
+    font-family: 'OpenSans';
+    font-style: normal;    
+}

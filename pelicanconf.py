@@ -10,7 +10,8 @@ DEFAULT_LANG = u'en'
 
 # Pelican Plugins stuff
 PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['liquid_tags.notebook', 'rmd_reader']
+#PLUGINS = ['liquid_tags.notebook', 'rmd_reader']
+PLUGINS = ['liquid_tags', 'rmd_reader']
 
 # Tell Pelican to add 'extra/custom.css' to the output dir
 STATIC_PATHS = ['images', 'extra/custom.css', 'drafts/figure']
