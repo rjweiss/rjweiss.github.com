@@ -1,0 +1,186 @@
+Title: `dplyr` is amazing
+Slug: dplyr-is-amazing
+Category: Walkthroughs
+Status: draft
+Date: 2014-05-10 15:30
+
+```{r warning=FALSE, echo=FALSE, results='hide', message=FALSE}
+setwd("/Users/rweiss/Dropbox/research/projects/NewsCoverage/")
+packages = c('dplyr','plyr','ggplot2','lubridate', 'reshape2')
+sapply(packages, require, character.only=T)
+gc()
+data = read.csv('InternetArchive/gensim-update1x5k-thresh0.2-subset20k-k30.model-doc-topics.txt', header=T)
+data = data[-1,] # Remove the first document, because it's actually a mistake
+labels = read.csv('InternetArchive/labels.csv', header=T)
+meta = read.csv('InternetArchive/subset_meta.csv', header=T)
+meta$date = ymd_hms(as.character(meta$date), tz='UTC')
+names(data) = labels$label # this is sloppy
+data_meta = cbind(meta, data)
+```
+
+Everyone's jumping on the big data train.  For `R` users, "Big Data" usually refers to dimensionality: lots of rows, lots of columns.  The sad reality of base `R` is that it wasn't really designed for data of that scale.  Luckily, there are lots of people working on making `R` more capable of handling larger data sets.
+
+I've been meaning to test out `dply` against `plyr` for some time now.  Here's a short walkthrough of my early explorations.
+
+## The data
+I've been working a lot with broadcast media data.  One of my projects involves exploring the daily and weekly distribution of time spent on various topics and issues covered by news media.  
+
+So let's say I have been estimating the proportion of 
+
+Here's an example of what this data looks like:
+```{r}
+head(data_meta)
+```
+
+If I want to compute daily or weekly averages of the topic probability per show and per topic, I have to create a number of groupings according to those dimensions.  This is a classic split-apply-combine problem.  
+
+To do weekly averages, this also requires a bit of date handling.  Luckily, `lubridate` makes this pretty easy (and I've [written about `lubridate` before]()).  What's the time period that I'm evaluating?
+```{r}
+start = min(data_meta$date)
+end = max(data_meta$date)
+start
+end
+```
+
+How many days am I working with?
+```{r}
+end - start
+```
+
+How many weeks?
+```{r}
+round((end - start) / eweeks(1))
+```
+
+Say I want to see a weekly average, but I want this to be over the full multi-year period.  I'm going to create a new dimension that consists of a week index over this time period, and then I'm going to transform this data from wide to long format.
+```{r}
+data_meta$week = round((data_meta$date - min(data_meta$date)) / eweeks(1))
+data_meta$date = NULL # I'm going to melt this data and I don't want date in the way.
+melted_data = melt(data_meta, id.vars=c('X_id', 'channel', 'show', 'week'))
+dim(melted_data)
+```
+
+## Creating a weekly average
+
+Again, this is a split-apply-combine problem.  I want to split this data into each topic, each channel, and each week.  For each of these subsets, I want to compute the average topic probability for each show's text that I've got.  
+
+`plyr` was the canonical tool to turn to for split-apply-combine problems in `R`, and computing summary data within that analytical context is pretty textbook:
+```{r}
+melted_data_total = ddply(melted_data, .(variable, channel, week), summarise, 
+                          value = mean(as.numeric(value), na.rm=T))
+```
+
+And this results in a weekly average of coverage per topic, such as the following:
+```{r}
+dim(melted_data_total)
+head(melted_data_total)
+```
+
+The problem is that this takes quite a bit of time to execute:
+```{r}
+ddply_time = system.time(
+  ddply(melted_data, .(variable, channel, week), summarise, 
+                          value = mean(as.numeric(value), na.rm=T))
+  )
+print(ddply_time)
+```
+
+This is a relatively small set of data compared to the real world. 400k observations is pretty reasonable and the scale of really Big Data, I can easily imagine wanting to explore millions of observations.
+
+`plyr` is wonderful, but one of the problems with this package (and with base `R` in general) is that it wasn't originally designed to scale to data of this size.  Nothing prevents you from running this `ddply` command, but what if you goofed in your selection of group-by variables?  For example, maybe I chose channel, but actually I meant show?  
+
+It's completely reasonable to expect to have to iterate several times on a query to get the right subset and representation of your data.  And if a function takes minutes to hours to execute, it will slow down your workflow dramatically.
+
+[Enter `dplyr`](http://blog.rstudio.org/2014/01/17/introducing-dplyr/).  I don't really want to go into the implementation details (and besides, you can always just [review the source code](https://github.com/hadley/dplyr) if you really are curious).  There are really only a few things you need to know:
+
+1. If you are working with tabular data (or can think of your data as a `data.frame`), `dplyr` is for you
+2. If you are frustrated with how slow it is to do split-apply-combine problems on your data with `ddply`, `dplyr` is for you
+3. If you are working with data that is stored in a tabular format-supporting database (e.g. SQL), `dplyr` is for you.
+
+There are other tools out there for big `data.frames`, such as `data.table`, but I specifically wanted to do a head-to-head comparison of `dplyr` and `ddply`.  I like living in Wickham world.  One of my criticisms of `R` is that the community supports too many philosophies regarding how `R` packages should work, how syntax should be structured, and what kind of objects a package should create.  For me, `R` is about `data.frames`, and the Hadley world just feels like it's been more carefully considered.
+
+## Get to the point.  How much faster is `dplyr`?
+
+Working with `dplyr` is pretty easy.  There's an operator `%.%` that allows for function chaining, which means that performing a split-apply-combine can be considered much in the same structure as `ddply`:
+```{r}
+melted_data_dplyr = melted_data %.% 
+              group_by(variable, channel, week) %.%
+              summarise(value = mean(as.numeric(value), na.rm=T)) 
+
+class(melted_data_dplyr)
+```
+
+You can treat the resulting object like a `data.frame` and call functions like `head` on it:
+```{r}
+head(melted_data_dplyr)
+```
+
+We get the same results as with `ddply`.  So how much faster was the `dplyr` approach?
+```{r}
+dplyr_time = system.time(
+  melted_data %.% 
+              group_by(variable, channel, week) %.%
+              summarise(value = mean(as.numeric(value), na.rm=T))
+  )
+print(dplyr_time)
+```
+
+That's a pretty substantial increase in efficiency: from minutes to seconds.
+```{r}
+ddply_time/dplyr_time
+```
+
+That's about a 14-fold increase in efficiency.  Does this performance hold as data size increases?  Instead of a weekly average, let's try computing a daily average.  Going from 52 weeks to 365 days a year is about a 7-fold increase in data size, do we see a 7-fold increase in the execution time?
+```{r}
+data_meta = cbind(meta, data)
+melted_data = melt(data_meta, id.vars=c('X_id', 'channel', 'show', 'date'))
+
+dplyr_time_daily = system.time(melted_data %.%
+              group_by(variable, channel, date) %.%
+              summarise(value = mean(as.numeric(value), na.rm=T)))
+
+melted_data_dplyr = melted_data %.%
+              group_by(variable, channel, date) %.%
+              summarise(value = mean(as.numeric(value), na.rm=T))
+
+dplyr_time_daily/dplyr_time
+```
+
+Looks like we see about a 4x increase in execution time going from weeks to days.  What's the dimensionality of these `data.frame`s and how long did it take to perform this `summarise`?
+```{r}
+dim(melted_data)
+tbl_df(melted_data_dplyr)
+dplyr_time_daily
+```
+
+About 22 seconds to work with over a million observations.  How long would this have taken with `ddply`?
+```{r}
+ddply_time_daily = system.time(
+  ddply(melted_data, .(variable, channel, date), 
+        summarise, value = mean(as.numeric(value), na.rm=T))
+  )
+ddply_time_daily
+```
+
+That's quite a bit longer in actual time; what is the rate of improvement?
+```{r}
+ddply_time_daily/dplyr_time_daily
+```
+
+Now we see about a 23-fold improvement using `dplyr` over `ddply`.  But because the data was in the scale of millions of rows, this means I had to wait about 8.5 minutes for the `ddply` transform to complete, whereas the `dplyr` version only took 20 seconds.  That means if I borked my initial transformation, I could probably try a few more versions of the same split-apply-combine approach in the amount of time it took to see a single result from `ddply`.
+
+Additionally, it looks like the execution time of `ddply` more closely scales with the increase in observations.
+
+```{r}
+#ddply_time_daily/ddply_time
+```
+
+## In summary...
+
+`dplyr` is amazing.  This will dramatically increase my productivity with `R`.  I don't think I'll ever use `ddply` again.  I also prefer the expressiveness of the `%.%` operator (though I am honestly starting to grow a little concerned with all the operator overloading in the Wickham world of `R`).
+
+### Version information
+```{r}
+sessionInfo()
+```
+

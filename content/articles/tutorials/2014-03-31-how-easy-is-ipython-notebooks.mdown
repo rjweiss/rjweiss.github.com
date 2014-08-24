@@ -1,10 +1,10 @@
-Title: Testing IPython notebook integration with pelican
+Title: How easy is it to integrate IPython notebooks in a pelican blog?
 Date: 2014-03-31 20:33
-Category: Updates
+Category: walkthroughs
 Tags: pelican, ipython, notebook
 Slug: testing-ipython-integration
 Author: Rebecca Weiss
-Summary: How easy is it to integrate IPython notebooks in a pelican blog?
+Summary: Testing IPython notebook integration with pelican, pelican-bootstrap3, and liquid tags for IPython
 
 In this post, I'm (selfishly) testing the integration between pelican and `IPython` notebooks.
 
