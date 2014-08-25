@@ -9,8 +9,9 @@ TIMEZONE = 'Europe/Paris'
 DEFAULT_LANG = u'en'
 
 # Pelican Plugins stuff
-PLUGIN_PATH = 'pelican-plugins'
-PLUGINS = ['liquid_tags.notebook']
+PLUGIN_PATHS = ['pelican-plugins']
+#PLUGINS = ['liquid_tags.notebook', 'rmd_reader']
+PLUGINS = ['liquid_tags.notebook', 'rmd_reader']
 
 # Tell Pelican to add 'extra/custom.css' to the output dir
 STATIC_PATHS = ['images', 'extra/custom.css', 'drafts/figure']
@@ -44,10 +45,10 @@ PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 
 THEME = 'pelican-themes/pelican-bootstrap3'
-BOOTSTRAP_THEME = 'spacelab'
+BOOTSTRAP_THEME = 'readable'
 
-CC_LICENSE="CC-BY"
-DISPLAY_RECENT_POSTS_ON_SIDEBAR=True
+# CC_LICENSE="CC-BY"
+# DISPLAY_RECENT_POSTS_ON_SIDEBAR=True
 
 # Blogroll - disabled for now
 #LINKS =  (('Political Communication Laboratory', 'http://pcl.stanford.edu/'),
@@ -55,17 +56,26 @@ DISPLAY_RECENT_POSTS_ON_SIDEBAR=True
 
 # Social widget - disabled for now
 #SOCIAL = (('Github', 'www.github.com/rjweiss'),)
+# SOCIAL = (('linkedin', 'http://www.linkedin.com/in/rjweiss'),
+          # ('github', 'www.github.com/rjweiss'),)
 
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 # pelican-bootstrap3
 DISPLAY_TAGS_ON_SIDEBAR = False
 DISPLAY_TAGS_INLINE = True
-HIDE_SIDEBAR = False
-DISPLAY_ARTICLE_INFO_ON_INDEX = True
+HIDE_SIDEBAR = True
+DISPLAY_ARTICLE_INFO_ON_INDEX = False
+SITELOGO = 'images/rjw_2013-8-17.jpg'
+SITELOGO_SIZE = '90%'
+# BOOTSTRAP_NAVBAR_INVERSE = True
+# BOOTSTRAP_NAVBAR_FIXEDTOP = False	
+
+# ABOUT_ME = "I'm the jam."
+# AVATAR = 'images/rjw_2013-8-17.jpg'
 
 #Disqus stuff
 DISQUS_SITENAME = 'rebeccaweissinfo'
