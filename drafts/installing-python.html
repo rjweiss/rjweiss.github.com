@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>Mozilla Festival workshop materials - Rebecca Weiss</title>
+    <title>Getting Python working in your environment (Installation) - Rebecca Weiss</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -167,22 +167,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="/articles/2014/04/15/mozfest2013-workshop/">
+<link rel="canonical" href="../drafts/installing-python.html">
 
         <meta name="author" content="Rebecca Weiss" />
-        <meta name="keywords" content="pelican,publishing,workshops" />
-        <meta name="description" content="Materials from the 2013 Mozilla Festival workshop on simple text analysis" />
+        <meta name="description" content="Depending on what operating system you&#39;re working on, Python installation is a little different. Additionally, using Python on each of these OS platforms is a little different. Getting on my soapbox, I will say this; I work in all three of these environments and I vastly prefer to write ..." />
 
 
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="/theme/css/bootstrap.readable.min.css" type="text/css"/>
-    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../theme/css/bootstrap.spacelab.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
-        <link href="/static/custom.css" rel="stylesheet">
+    <link href="../theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+        <link href="../static/custom.css" rel="stylesheet">
 
 
 </head>
@@ -197,29 +196,26 @@ init_mathjax();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand">
-<img src="/images/rjw_2013-8-17.jpg" width="90%" id="navbar-brand-img"/> Rebecca Weiss            </a>
+            <a href="../" class="navbar-brand">
+Rebecca Weiss            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="/index.html">
-                             Who am I?
+                         <li><a href="../index.html">
+                             About
                           </a></li>
-                         <li><a href="/pages/tutorials/">
+                         <li><a href="../pages/tutorials/">
                              Tutorials
                           </a></li>
-                         <li><a href="/pages/vita/">
+                         <li><a href="../pages/vita/">
                              Vita
                           </a></li>
-                        <li class="active">
-                            <a href="/category/updates.html">Updates</a>
-                        </li>
                         <li >
-                            <a href="/category/walkthroughs.html">Walkthroughs</a>
+                            <a href="../category/updates.html">Updates</a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+                <li><a href="../archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -228,16 +224,16 @@ init_mathjax();
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-sm-9">
 
     <section id="content">
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/articles/2014/04/15/mozfest2013-workshop/"
+                    <a href="../drafts/installing-python.html"
                        rel="bookmark"
-                       title="Permalink to Mozilla Festival workshop materials">
-                        Mozilla Festival workshop materials
+                       title="Permalink to Getting Python working in your environment (Installation)">
+                        Getting Python working in your environment (Installation)
                     </a>
                 </h1>
             </header>
@@ -247,23 +243,68 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-04-15T00:00:00"> Tue 15 April 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-04-25T15:30:00"> Fri 25 April 2014</time>
     </span>
 
 
 
-<span class="label label-default">Tags</span>
-	<a href="/tag/pelican.html">pelican</a>
-        /
-	<a href="/tag/publishing.html">publishing</a>
-        /
-	<a href="/tag/workshops.html">workshops</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>I gave a workshop on how to work with text as data at the 2013 <a href="http://mozillafestival.org">Mozilla Festival</a>.</p>
-<p>Slides and instructional materials (<code>R</code> and <code>Python</code>) are all located here: <a href="http://www.rebeccaweiss.info/mozfest2013/">http://www.rebeccaweiss.info/mozfest2013/</a></p>
-<p>I will probably be revising those materials into a more general set of text tutorials at some point.</p>
+                <p>Depending on what operating system you're working on, Python installation is a little different.  Additionally, using Python on each of these OS platforms is a little different.</p>
+<p>Getting on my soapbox, I will say this; I work in all three of these environments and I vastly prefer to write Python in Linux, preferably a distribution that is widely used and common (Ubuntu/Debian or CentOS).  If you are working on OSX or Windows, it might be worth learning how to use a Virtual Machine.  VirtualBox is free and works on OSX and Windows.  VMWare is a popular option, but typically requires a license (though some educational institutions have institution licenses).</p>
+<h1>OSX</h1>
+<p>For many years now, OSX has come with Python pre-installed.  Open up Terminal type in the following:</p>
+<div class="highlight"><pre><span class="n">rweiss</span><span class="err">$</span> <span class="n">which</span> <span class="n">python</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span>
+</pre></div>
+
+
+<p>So the executable that is called by your system when you call <code>python</code> at the Terminal command line is located at <code>/usr/bin/python</code>.  And you can tell what version of Python is installed on your machine.  </p>
+<div class="highlight"><pre><span class="n">rweiss</span><span class="err">$</span> <span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">Python</span> <span class="mf">2.7.2</span>
+</pre></div>
+
+
+<p>Your version will depend on a variety of factors such as your OSX version or how often you update your software, so I'm not going to pretend I can guess what is most common.  If you are running a version less than 2.6, you will probably run into problems; a lot of the 3rd-party modules that other people develop for Python that are really super useful expect that you have 2.6+ installed.</p>
+<p>You should probably know, however, that there might be more than one version of Python on your machine.  You can check this with the following:</p>
+<div class="highlight"><pre><span class="n">rweiss</span><span class="err">$</span> <span class="n">ls</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="o">*</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span>         
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.5</span><span class="o">-</span><span class="n">config</span>   
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span>      
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pythonw2</span><span class="mf">.5</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python</span><span class="o">-</span><span class="n">config</span>      
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.6</span>      
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">-</span><span class="n">config</span>   
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pythonw2</span><span class="mf">.6</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.5</span>      
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.6</span><span class="o">-</span><span class="n">config</span>   
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pythonw</span>        
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">pythonw2</span><span class="mf">.7</span>
+</pre></div>
+
+
+<p>How does your machine know which one of these to use when you call <code>python</code>?  Without getting too deep into filesystems, all we need to know is that OSX has mapped <code>/usr/bin/python</code> to <code>/usr/bin/python2.7</code> through a <em>symbolic link</em>.  Similarly, <code>/usr/bin/python2.7</code> is a <em>symbolic link</em> to another location</p>
+<div class="highlight"><pre><span class="n">rweiss</span><span class="err">$</span> <span class="n">ls</span> <span class="o">-</span><span class="n">lha</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">*</span>
+<span class="n">lrwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span>  <span class="mi">1</span> <span class="n">root</span>  <span class="n">wheel</span>    <span class="mi">75</span><span class="n">B</span> <span class="n">Mar</span> <span class="mi">12</span>  <span class="mi">2013</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span> <span class="o">-&gt;</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">System</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="p">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">2.7</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span>
+<span class="n">lrwxr</span><span class="o">-</span><span class="n">xr</span><span class="o">-</span><span class="n">x</span>  <span class="mi">1</span> <span class="n">root</span>  <span class="n">wheel</span>    <span class="mi">82</span><span class="n">B</span> <span class="n">Mar</span> <span class="mi">12</span>  <span class="mi">2013</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">-</span><span class="n">config</span> <span class="o">-&gt;</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">System</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="p">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">2.7</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">-</span><span class="n">config</span>
+</pre></div>
+
+
+<p>And the actual <code>python</code> executable is located in that directory, which is <code>/System/Library/Frameworks/Python.framework/Versions/2.7/bin/</code> on my machine.</p>
+<h1>Windows</h1>
+<p>Installing Python on Windows is much like any other Windows executable.  First, <a href="http://www.python.com">download a distribution of Python here</a></p>
+<h1>Linux</h1>
+<p>For the purposes of this tutorial, I'm going to walk through the installation process using a machine running Ubuntu.  This means I'll be making references to installation using the canonical Ubuntu/Debian package manager, aptitude (referenced through <code>apt-get</code>).  </p>
+<div class="highlight"><pre><span class="n">rweiss</span><span class="err">$</span> <span class="n">which</span> <span class="n">python</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span> <span class="n">python</span><span class="o">-</span><span class="n">setuptools</span> <span class="n">python</span><span class="o">-</span><span class="n">virtualenv</span>
+</pre></div>
+
+
+<h1>Other useful Python distributions</h1>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -275,8 +316,8 @@ init_mathjax();
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'rebeccaweissinfo'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'mozfest2013-workshop';
-                var disqus_url = '/articles/2014/04/15/mozfest2013-workshop/';
+                    var disqus_identifier = 'installing-python';
+                var disqus_url = '../drafts/installing-python.html';
 
             var disqus_config = function () {
                 this.language = "en";
@@ -300,6 +341,55 @@ init_mathjax();
     </section>
 
         </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+                    <ul class="list-group" id="recentposts">
+                        <li class="list-group-item">
+                            <a href="../articles/2014/04/25/vam-python/">
+                                Very Applied Methods workshop
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../articles/2014/04/15/iriss2013-tutorial/">
+                                IRiSS Computational Social Science workshop materials
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../articles/2014/04/15/mozfest2013-workshop/">
+                                Mozilla Festival workshop materials
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../articles/2014/03/31/testing-ipython-integration/">
+                                Testing IPython notebook integration with pelican
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../articles/2014/03/31/initial-commit/">
+                                Initial commit
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+        <div id="gh_repos">
+            <p class="list-group-item">Status updating...</p>
+        </div>
+            <a href="https://github.com/rjweiss">@rjweiss</a> on GitHub
+    </li>
+
+        </ul>
+    </section>
+
+</aside>        </div>
     </div>
 </div>
 <footer>
@@ -309,18 +399,22 @@ init_mathjax();
          <div class="col-xs-10">&copy; 2014 Rebecca Weiss
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
       </div>
    </div>
 </footer>
-<script src="/theme/js/jquery.min.js"></script>
+<script src="../theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/theme/js/bootstrap.min.js"></script>
+<script src="../theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="/theme/js/respond.min.js"></script>
+<script src="../theme/js/respond.min.js"></script>
 
     <!-- GitHub JS -->
     <script type="text/javascript">
@@ -328,7 +422,7 @@ init_mathjax();
             if (!window.jXHR) {
                 var jxhr = document.createElement('script');
                 jxhr.type = 'text/javascript';
-                jxhr.src = '/theme/js/jXHR.js';
+                jxhr.src = '../theme/js/jXHR.js';
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(jxhr, s);
             }
@@ -341,7 +435,7 @@ init_mathjax();
             });
         });
     </script>
-    <script src="/theme/js/github.js" type="text/javascript"></script>
+    <script src="../theme/js/github.js" type="text/javascript"></script>
     <!-- End GitHub JS Code -->
     <!-- Disqus -->
     <script type="text/javascript">
