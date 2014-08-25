@@ -21,7 +21,7 @@ EXTRA_PATH_METADATA = {
 }
 
 # For IPython Notebooks
-EXTRA_HEADER = open('_nb_header_minimal.html').read().decode('utf-8')
+#EXTRA_HEADER = open('_nb_header_minimal.html').read().decode('utf-8')
 NOTEBOOK_DIR = 'notebooks'
 
 CUSTOM_CSS = 'static/custom.css'
