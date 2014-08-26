@@ -7,17 +7,18 @@ SITENAME = u'Rebecca Weiss'
 #SITEURL = 'http://www.rebeccaweiss.info'
 SITEURL = 'http://localhost:8000'
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'America/Vancouver'
 DEFAULT_LANG = u'en'
 
 # Pelican Plugins stuff
 PLUGIN_PATHS = ['pelican-plugins']
-#PLUGINS = ['liquid_tags.notebook', 'rmd_reader']
-PLUGINS = ['liquid_tags.notebook', 'rmd_reader', 'render_math']
-
+PLUGINS = ['liquid_tags.notebook', 'rmd_reader']
+# PLUGINS = ['liquid_tags.notebook', 'rmd_reader', 'render_math']
 
 # Tell Pelican to add 'extra/custom.css' to the output dir
-STATIC_PATHS = ['images', 'extra/custom.css', 'figure']
+STATIC_PATHS = ['images', 
+'extra/custom.css', 
+'figure']
 
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
@@ -44,8 +45,11 @@ DEFAULT_DATE_FORMAT = ('%a %d %B %Y')
 
 # Formatting for urls
 
-ARTICLE_URL = 'articles/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = 'articles/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+# ARTICLE_URL = 'articles/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+# ARTICLE_SAVE_AS = 'articles/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+
+ARTICLE_URL = 'articles/{date:%Y}_{date:%m}_{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = 'articles/{date:%Y}_{date:%m}_{date:%d}/{slug}/index.html'
 
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
@@ -68,7 +72,7 @@ BOOTSTRAP_THEME = 'readable'
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = False
+RELATIVE_URLS = True
 
 # pelican-bootstrap3
 DISPLAY_TAGS_ON_SIDEBAR = False

@@ -1,10 +1,14 @@
-Title: How easy is it to integrate IPython notebooks in a pelican blog?
+Title: How easy is it to use IPython notebooks with pelican?
 Date: 2014-03-31 20:33
 Category: walkthroughs
 Tags: pelican, ipython, notebook
 Slug: testing-ipython-integration
 Author: Rebecca Weiss
 Summary: Testing IPython notebook integration with pelican, pelican-bootstrap3, and liquid tags for IPython
+
+**UPDATE 8/26/2014**:Thanks to [Daan Debie][daandebie], you no longer have to do any of the below if you're using the pelican-bootstrap3 theme.  Simply include the `liquid-tags.notebook` plugin in your pelican plugin list and you're good to go!
+
+***
 
 In this post, I'm (selfishly) testing the integration between pelican and `IPython` notebooks.
 
@@ -26,3 +30,4 @@ Below the line is an example of an ipython notebook embedded in a pelican articl
 [mozfest2013]: http://rjweiss.github.io/mozfest2013/
 [cranmer]: http://theoryandpractice.org/
 [cranmerhack]: http://theoryandpractice.org/2014/03/Testing-Pelican-Migration/
+[daandebie]: http://github.com/DandyDev
