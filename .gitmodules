@@ -106,3 +106,9 @@
 [submodule "maggner-pelican"]
 	path = maggner-pelican
 	url = https://github.com/kplaube/maggner-pelican.git
+[submodule "pelican-plugins"]
+	path = pelican-plugins
+	url = https://github.com/getpelican/pelican-plugins.git
+[submodule "pelican-bootstrap3"]
+	path = pelican-bootstrap3
+	url = https://github.com/DandyDev/pelican-bootstrap3.git

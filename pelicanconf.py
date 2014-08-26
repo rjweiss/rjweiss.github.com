@@ -44,7 +44,7 @@ ARTICLE_SAVE_AS = 'articles/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 
-THEME = 'pelican-themes/pelican-bootstrap3'
+THEME = 'pelican-bootstrap3'
 BOOTSTRAP_THEME = 'readable'
 
 # CC_LICENSE="CC-BY"
