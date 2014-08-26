@@ -4,25 +4,31 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Rebecca Weiss'
 SITENAME = u'Rebecca Weiss'
-SITEURL = ''
+#SITEURL = 'http://www.rebeccaweiss.info'
+SITEURL = 'http://localhost:8000'
+
 TIMEZONE = 'Europe/Paris'
 DEFAULT_LANG = u'en'
 
 # Pelican Plugins stuff
 PLUGIN_PATHS = ['pelican-plugins']
 #PLUGINS = ['liquid_tags.notebook', 'rmd_reader']
-PLUGINS = ['liquid_tags.notebook', 'rmd_reader']
+PLUGINS = ['liquid_tags.notebook', 'rmd_reader', 'render_math']
+
 
 # Tell Pelican to add 'extra/custom.css' to the output dir
-STATIC_PATHS = ['images', 'extra/custom.css', 'drafts/figure']
+STATIC_PATHS = ['images', 'extra/custom.css', 'figure']
 
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
     'extra/custom.css': {'path': 'static/custom.css'}
 }
 
+MARKUP = ('md', 'Rmd', 'rmd')
+
+
 # For IPython Notebooks
-EXTRA_HEADER = open('_nb_header_minimal.html').read().decode('utf-8')
+# EXTRA_HEADER = open('_nb_header_minimal.html').read().decode('utf-8')
 NOTEBOOK_DIR = 'notebooks'
 
 CUSTOM_CSS = 'static/custom.css'

@@ -1,0 +1,35 @@
+Title: How easy is it to integrate R markdown and knitr in a pelican blog?
+Date: 2014-08-25 20:33
+Category: walkthroughs
+Tags: pelican, r, knitr, markdown
+Slug: testing-rmarkdown-integration
+Author: Rebecca Weiss
+Summary: Testing R and Knitr integration with pelican and pelican-bootstrap3
+
+# ```{r, echo=FALSE}
+# hook_plot <- knit_hooks$get('plot')
+# 
+# knit_hooks$set(plot=function(x, options) {
+#     if (!is.null(options$pelican.publish) && options$pelican.publish) {
+#         x <- paste0("{filename}", x)
+#     }
+#     hook_plot(x, options)
+# })
+# 
+# opts_chunk$set(pelican.publish=TRUE)
+# ```
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
+
+When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+plot(cars)
+```
+

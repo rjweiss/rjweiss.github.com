@@ -12,7 +12,7 @@ from pelicanconf import *
 
 # SITEURL = 'http://rebeccaweiss.info'
 SITEURL = 'http://www.rebeccaweiss.info.s3-website-us-east-1.amazonaws.com'
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
